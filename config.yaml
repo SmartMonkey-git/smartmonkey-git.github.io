@@ -1,6 +1,6 @@
 baseURL: "smartmonkey-git.github.io"
 languageCode: "en-us"
-title: "Hugo Profile"
+title: "Smart Monkey"
 theme: hugo-profile
 
 outputs:
@@ -62,7 +62,7 @@ params:
   title: "Hugo Profile"
   description: Text about my cool site
   # staticPath: ""  # The path to serve the static files from
-  favicon: "/fav.png"
+  favicon: "/favicon.ico"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
@@ -115,8 +115,8 @@ params:
     align: ms-auto # Left: ms-auto | center: mx-auto | right: me-auto | Default: ms-auto
     # brandLogo: "/logo.png" # Logo for the brand | default is the favicon variable
     # showBrandLogo: false # Show brand logo in nav bar | default is true
-    brandName: "Hugo Profile" # Brand name for the brand | default is the title variable
-    disableSearch: false
+    brandName: "Smart Monkey" # Brand name for the brand | default is the title variable
+    disableSearch: true
     # searchPlaceholder: "Search"
     stickyNavBar:
       enable : true
@@ -127,35 +127,35 @@ params:
       disableExperience: false
       disableEducation: false
       disableProjects: false
-      disableAchievements: false
+      disableAchievements: true
       disableContact: false
 
   # Hero
   hero:
     enable: true
     intro: "Hi, my name is"
-    title: "Isabella."
-    subtitle: "I build things for the web"
-    content: "A passionate web app developer. I tend to make use of modern web technologies to build websites that look great, feel fantastic, and function correctly."
-    image: /images/hero.svg
+    title: "Under Construction."
+    subtitle: "I do software."
+    content: "A passionate data scientist."
+    image: /images/me.png
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
     button:
       enable: true
       name: "Resume"
-      url: "#"
+      url: "https://drive.google.com/uc?export=download&id=1hD64UJM7bHU8egCkQR0BSab1iBuhxn3i"
       download: true
       newPage: false
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
-          url: https://example.com
-        - icon: fab fa-x-twitter
-          url: https://example.com
-      customIcons:
-        - icon: /fav.png
-          url: "https://example.com"
+          url: https://github.com/SmartMonkey-git
+        #- icon: fab fa-x-twitter
+        #  url: https://example.com
+      #customIcons:
+      #  - icon: /favicon.ico
+      #    url: "https://example.com"
 
   # About
   about:
@@ -163,19 +163,17 @@ params:
     title: "About Me"
     image: "/images/me.png"
     content: |-
-      I am a software developer with a passion for web development. I have a background in computer science and mathematics, and I have a strong interest in the intersection of technology and art. I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA.
-
-      I am currently working on a project that will be used to help people find the best way to get around the city.
+     I'm a Machine Learning Engineer with expertise in building and managing hybrid cloud infrastructures using AWS and Terraform, as well as creating CI/CD pipelines with Docker and Kubernetes. Experienced in developing data pipelines and training machine learning models for healthcare and manufacturing, with a strong background in Python and Rust. Holds a Master's in Media Informatics with a focus on Data Science and DevOps.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
       items:
-        - "HTML"
-        - "CSS"
-        - "JavaScript"
-        - "React"
-        - "Node"
-        - "Express"
+        - "Python"
+        - "Rust"
+        - "Pytorch"
+        - "Kubernetes"
+        - "Docker"
+        - "MlFlow"
 
   # Experience
   experience:
@@ -287,7 +285,7 @@ params:
 
   # Achievements
   achievements:
-    enable: true
+    enable: false
     # title: "Custom Name"
     items:
       - title: Google kickstart runner
@@ -379,11 +377,11 @@ params:
       enable: true
       disableFeaturedImage: false
     socialNetworks:
-      github: https://github.com
-      linkedin: https://linkedin.com
-      twitter: https://twitter.com
-      instagram: https://instagram.com
-      facebook: https://facebook.com
+      github: https://github.com/SmartMonkey-git
+      linkedin: https://www.linkedin.com/in/rouven-reuter/
+      #twitter: https://twitter.com
+      #instagram: https://instagram.com
+      #facebook: https://facebook.com
 
   # List pages like blogs and posts
   listPages:
