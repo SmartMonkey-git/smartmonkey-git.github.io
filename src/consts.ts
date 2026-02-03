@@ -13,7 +13,7 @@ export const HIGHLIGHTAUTHOR = "Rouven Reuter"
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Astro Micro is an accessible theme for Astro.",
+  DESCRIPTION: "Portfolio page of Rouven Reuter",
 };
 
 export const BLOG: Metadata = {
