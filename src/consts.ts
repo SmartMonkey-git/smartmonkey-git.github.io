@@ -13,7 +13,7 @@ export const HIGHLIGHTAUTHOR = "Rouven Reuter"
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Portfolio page of Rouven Reuter",
+  DESCRIPTION: "Researcher at BIH building open-source Rust tools for Phenopackets. Working on phenotyping and Bipolar Disorder research with the Robinson Group.",
 };
 
 export const BLOG: Metadata = {
