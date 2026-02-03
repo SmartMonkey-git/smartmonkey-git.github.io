@@ -6,7 +6,7 @@ export const SITE: Site = {
   EMAIL: "Rouven.Reuter@proton.me",
   NUM_POSTS_ON_HOMEPAGE: 2,
   NUM_PUBLICATIONS_ON_HOMEPAGE: 3,
-  SITEURL: 'https://astro-micro-academic.vercel.app' // Update here to link the RSS icon to your website rss
+  SITEURL: 'https://www.smart-monkey.blog/' // Update here to link the RSS icon to your website rss
 };
 
 export const HIGHLIGHTAUTHOR = "Rouven Reuter"
