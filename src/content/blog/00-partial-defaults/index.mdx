@@ -1,0 +1,60 @@
+---
+title: "Partial Defaults in Rust 🦀"
+description: "Be aware of ..Default::default()"
+date: "2026-08-09"
+tags: ['rust', '🦀']
+---
+
+import Callout from "@/components/Callout.astro";
+import { Code } from 'astro:components';
+
+## Intro 🦀
+
+Rust, despite being an unsurprising programming language by design, still got me hunting for a bug produced by an unknown-unknown. Even more surprising, the behaviour in question stems from the build-in `..Default::default()`.
+
+### Example
+Have a look at the following example:
+```rust
+#![allow(dead_code)]
+
+fn main() {
+// This panics, even though we provided `bar`!
+Foo {
+    bar: Bar::new(),
+    ..Default::default()
+}
+}
+
+#[derive(Default)]
+struct Foo {
+    bar: Bar,
+    x: i32,
+    y: i32,
+}
+
+struct Bar;
+
+impl Default for Bar {
+    fn default() -> Self {
+        // This will panic even though we "set" bar explicitly!
+        let config = std::fs::read_to_string("config.txt")
+            .expect("Failed to read config");
+        Self::from_config(&config)
+    }
+}
+```
+
+Would you expect the default constructor of `Bar` to be called? I would not! The way we construct `Foo` suggests that only `x`and `y`'s default constructors get called. However, when you run the snippet, you will see your console panic.
+This is because the [struct update syntax](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#creating-instances-with-struct-update-syntax) fully instantiates the entire base object first, and then copies the missing fields from it.
+Clearly, if you are not aware of the fact, that `..Default::default()` calls the default constructors for all attributes, even if they are declared, you might run into unexpected bugs or high performance costs.
+
+### Conclusion
+The takeaway here is to be mindful that `..Default::default()` constructs
+a complete default instance of your struct, even for fields you explicitly
+set.
+
+This means:
+- Default constructors should be cheap (no expensive allocations or I/O).
+- Try to avoid the temptation of the default constructor for deeply nested structs.
+- Keep defaults, as simple as possible. If this is not possible, do not implement default.
+
