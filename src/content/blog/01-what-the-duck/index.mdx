@@ -1,0 +1,62 @@
+---
+title: "What the Duck"
+description: "An essay about what we can learn from language about the mind"
+date: "2026-18-08"
+tags: ['transformers', 'language', 'essay']
+---
+
+# What the duck?
+
+Duck too quickly and you'll throw out your back, but you'll still see them paddling across the pond every spring. The prior sentence probably induced some itch in some corner of your brain. Don't worry, it will go away as you read.
+
+The mind has been defined in various ways. [1] Classic Computationalists view the mind as a computational system that operates similarly to a Turing machine. A Turing machine is a simple imaginary device that reads and writes symbols on an infinite tape according to fixed rules, and can in principle compute anything that's computable. The most important idea to borrow from them for this essay is that mental operations involve processing information according to algorithmic, mechanical rules. [2]
+
+Attempts to define language are as frequent as the attempts to capture the mind. Nasution and Tambunan argue that language is a tool for communication to convey information and meaning between humans. [3]
+
+The mind and language are not foreign to each other. Language gets produced and processed by cognitive processes run by the mind - hence the mind can be understood as the engine that generates and interprets language. [4]
+
+Since both conventional computer hardware and the mind run algorithms, this allows us to implement computational models that mimic phenomena of the mind. Studying these models lets us reason and draw conclusions about the mind's behaviour. Language is one such phenomenon.
+
+Communication through language is inherently context-dependent, meaning is not fixed in the words themselves, but shaped by the situation in which they're used. For example, the sentence "I saw her duck" changes its meaning depending on whether she is an ornithologist or a boxer. This exemplifies that our mind depends on the surrounding context to resolve the meaning of words. In computer science the string "I saw her duck" might represent the correct words but it's devoid of any meaning. The machine does not naturally know if duck is supposed to mean the animal or the motion, regardless of the context. Even if the machine would be provided with additional context, like "I saw her duck below that punch", it could not resolve the ambiguity. [5], [6] Unless given the right algorithm.
+
+Attention, attention. Because it's all you need. Transformers and their underlying self-attention mechanism are able to resolve lexical ambiguity. The self-attention mechanism compares each token to every other token in a sequence using three vectors derived from word embeddings - Query (Q), Key (K) and Value (V). Where Q contains information about what a token is looking for, K contains information about what the token has to offer. By calculating dot product scores between them, the attention mechanism is able to tell which tokens to focus on by the relative size of the products. Next, the scores are normalized and pushed through a softmax function. The result is a weight per token pair that quantifies how tokens should pay attention to each other. The output for each token is a weighted sum of every V vector in the sequence, blended in exact proportion to the weights softmax just handed out. No token wins outright; every token gets a little of everything, in proportion to how much it matters. [7]
+
+Circling back to the extended example: "I saw her duck below that punch", likely the weights assigned to duck and punch would be pronounced, telling the neural network that punch influences the meaning of duck.
+
+The Transformer model gives us a computational model of how machines apply attention to language. If human language comprehension is itself a computational process, then Transformers could provide insights on how the mind works.
+
+Reading is to a human what inserting a tensor vector is to a Transformer. For both it is the consumption of language. When Bensemann et al. recorded the dwell times of the human eye when reading and compared these times with the attention embeddings of the early layers of Transformer models, they discovered correlating patterns between them. Depending on the dataset and chosen model their best correlations range from 0.348 to 0.824, with the majority of the scores being closer to 0.8. [8] Further evidence is provided Hollenstein et al. who found a similar result using eye tracking data and pretrained transformers across different languages. [9]
+
+In their recent paper, Rivière and Trott propose a pipeline to probe the attention mechanism concerning lexical ambiguity to crystalize mechanisms that help disambiguate. They inspect individual heads of their models to find inflection points in disambiguation performance. In their experiment each of their ambiguous minimal sentences, like "The marinated lamb" had an unambiguous counterpart "The friendly lamb", similar to our duck example. For each pair they measured the cosine distance of embeddings for each layer until each sentence pair was associated with L distance measures for a given model and regressed the R². They found that attention to the disambiguating word covaried with rising disambiguation performance in specific heads and ablating those heads' query and key matrices caused performance to drop, confirming the relationship was causal rather than merely correlational. [10]
+
+Together, these three papers show that Transformer attention does more than just connect words. It captures some of the same things our mind does when reading: where we focus, what words we connect, and how context changes meaning. This does not mean that Transformers think like us, but it does make self-attention an interesting computational model of how the mind processes language.
+
+Bensemann et al.'s and Hollenstein et al.'s [8], [9] evidence supports the idea that transformer self-attention functions similarly to the mind's attention and that transformers implicitly encode the relative importance of words in a sentence much like human cognitive processing mechanisms do.
+
+Rivière and Trott [10] could to some capacity prove that transformers are capable of disambiguation of lexical ambiguity, when the correct context is provided. Even though Rivière and Trott did not test their hypothesis on the mind, it's plausible that transformers disambiguate similarly to the mind. Since that duck only became a motion to you when the extended version was provided, your own attention must have done what the Transformer's does: reached past the ambiguous word for the one word that resolves it, and held on.
+
+One more small thing. Do you still remember why your brain itches? If you don't then this proves another similarity between the mind and the attention mechanism. Our fleshy hardware is limited, likewise the hardware of computers. Attention can not span over an infinite number of tokens, it will forget earlier ones, just like you did.
+
+So if you're still confused about ducks and your back, that's because even attention has its limits.
+
+## References
+
+[1] J. Kim, *Philosophy of Mind*, 3rd ed. Routledge, 2018. doi: 10.4324/9780429494857.
+
+[2] M. Rescorla, "The Computational Theory of Mind," in *The Stanford Encyclopedia of Philosophy*, Summer 2026, E. N. Zalta and U. Nodelman, Eds., Metaphysics Research Lab, Stanford University, 2026. [Online]. Available: https://plato.stanford.edu/archives/sum2026/entries/computational-mind/
+
+[3] F. Nasution and E. E. Tambunan, "Language and Communication," *Thesaurus Old English*, Vol. 1, 2000. [Online]. Available: https://api.semanticscholar.org/CorpusID:286699788
+
+[4] D. W. Carroll, *Psychology of Language*, 5th ed. Belmont, CA: Thomson Wadsworth, 2008.
+
+[5] Y. Bar-Hillel, "The Present Status of Automatic Translation of Languages," in *Readings in Machine Translation*, S. Nirenburg, H. L. Somers, and Y. A. Wilks, Eds., The MIT Press, 2003, pp. 45–76. doi: 10.7551/mitpress/5779.003.0009.
+
+[6] D. Ulmer, "On Uncertainty In Natural Language Processing," 2024, arXiv. doi: 10.48550/ARXIV.2410.03446.
+
+[7] A. Vaswani et al., "Attention Is All You Need," 2017, arXiv. doi: 10.48550/ARXIV.1706.03762.
+
+[8] J. Bensemann et al., "Eye Gaze and Self-attention: How Humans and Transformers Attend Words in Sentences," in *Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics*, Dublin, Ireland: Association for Computational Linguistics, 2022, pp. 75–87. doi: 10.18653/v1/2022.cmcl-1.9.
+
+[9] N. Hollenstein, F. Pirovano, C. Zhang, L. Jäger, and L. Beinborn, "Multilingual Language Models Predict Human Reading Behavior," in *Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies*, Online: Association for Computational Linguistics, 2021, pp. 106–123. doi: 10.18653/v1/2021.naacl-main.10.
+
+[10] P. D. Rivière and S. Trott, "Start Making Sense(s): A Developmental Probe of Attention Specialization Using Lexical Ambiguity," 2025, arXiv. doi: 10.48550/ARXIV.2511.21974.

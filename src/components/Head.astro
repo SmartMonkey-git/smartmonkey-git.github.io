@@ -185,8 +185,10 @@ const { title, description, image = "https://www.smart-monkey.blog/preview.jpg" 
   function preloadTheme() {
     const userTheme = localStorage.theme;
 
-    if (userTheme === "light" || userTheme === "dark") {
-      toggleTheme(true); // set default to dark theme
+    if (userTheme === "light") {
+      toggleTheme(false);
+    } else if (userTheme === "dark") {
+      toggleTheme(true);
     } else {
       toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
     }
